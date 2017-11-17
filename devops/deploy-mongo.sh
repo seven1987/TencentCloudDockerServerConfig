@@ -7,7 +7,7 @@ export REMOTE_ROOT="/home"
 #(cd ${WORKSPACE}/devops/;chmod +x *.sh; ./test.sh)
 
 SERVICE_NAME="mongo"
-RELATIVE_PATH = "/dnf/mongo"
+RELATIVE_PATH="/dnf/mongo"
 TAR_NAME="${SERVICE_NAME}-${BUILD_ID}-`date +%y%m%d`"
 TAR_GZ="${TAR_NAME}.tar.gz"
 
@@ -36,7 +36,7 @@ tar -czf ${TAR_GZ} -C .. . \
     sudo tar xzf ${TAR_GZ}  -C ${TAR_NAME};
     if [ ! -d "$SERVICE_NAME"]; then
         sudo ln -s ${TAR_NAME} ${SERVICE_NAME};
-        (cd ${SERVICE_NAME}${RELATIVE_PATH}; sudo docker-compose down; sudo docker-compose up -d --build)
+        (cd ${SERVICE_NAME}${RELATIVE_PATH}; mkdir db; sudo docker-compose down; sudo docker-compose up -d --build)
     else
         (cd ${SERVICE_NAME}${RELATIVE_PATH}; sudo docker-compose down;)
         sudo rm -rf ${SERVICE_NAME};
