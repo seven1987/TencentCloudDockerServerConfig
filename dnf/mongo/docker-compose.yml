@@ -1,0 +1,9 @@
+version: '3'
+services:   
+    mongo:
+        image: mongo:3.5.13
+        restart: always
+        ports:
+            - {MONGO_PORT}:27017"
+        volumes:
+            - ./db:/data/db
