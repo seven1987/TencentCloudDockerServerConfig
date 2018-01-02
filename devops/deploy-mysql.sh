@@ -33,7 +33,7 @@ tar -czf ${TAR_GZ} -C .. . \
 (ssh ${REMOTE_HOST} "cd ${REMOTE_PATH};
     sudo mkdir ${TAR_NAME};
     sudo tar xzf ${TAR_GZ}  -C ${TAR_NAME};
-    if [ ! -d "$SERVICE_NAME"]; then
+    if [ ! -d "$SERVICE_NAME" ]; then
         sudo ln -s ${TAR_NAME} ${SERVICE_NAME};
         (cd ${SERVICE_NAME}/dnf/mysql; sudo docker-compose down; sudo docker-compose up -d --build)
     else
