@@ -40,6 +40,11 @@ tar -czf ${TAR_GZ} -C .. . \
         (cd ${SERVICE_NAME}/dnf/mysql; sudo docker-compose down;)
         sudo rm -rf ${SERVICE_NAME};
         sudo ln -s ${TAR_NAME} ${SERVICE_NAME};
-        (cd ${SERVICE_NAME}/dnf/mysql; sudo docker-compose up -d --build)
+		if [ "$1" = "rebuild" ];
+		then
+			(cd ${SERVICE_NAME}/dnf/mysql; sudo docker-compose up -d --build)
+		else
+			(cd ${SERVICE_NAME}/dnf/mysql; sudo docker-compose up -d)
+		fi;
     fi
     ")
