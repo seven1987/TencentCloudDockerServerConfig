@@ -11,7 +11,7 @@ RELATIVE_PATH="/dnf/mongo"
 TAR_NAME="${SERVICE_NAME}-${BUILD_ID}-`date +%y%m%d`"
 TAR_GZ="${TAR_NAME}.tar.gz"
 
-REMOTE_PATH="${REMOTE_ROOT}/jenkins_git"
+REMOTE_PATH="${REMOTE_ROOT}"
 cd ${WORKSPACE}/devops
 rm -rf *.tar.gz
 
